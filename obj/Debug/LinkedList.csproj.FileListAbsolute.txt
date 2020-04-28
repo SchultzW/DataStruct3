@@ -1,0 +1,2 @@
+D:\GitRepos\CS260\Lab3\LinkedList\obj\Debug\LinkedList.csprojAssemblyReference.cache
+D:\GitRepos\CS260\Lab3\LinkedList\obj\Debug\LinkedList.csproj.CoreCompileInputs.cache

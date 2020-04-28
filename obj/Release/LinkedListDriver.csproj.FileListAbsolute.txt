@@ -1,0 +1,12 @@
+D:\GitRepos\CS260\Lab3\LinkedList\bin\Release\LinkedList.exe.config
+D:\GitRepos\CS260\Lab3\LinkedList\bin\Release\LinkedList.exe
+D:\GitRepos\CS260\Lab3\LinkedList\bin\Release\LinkedList.pdb
+D:\GitRepos\CS260\Lab3\LinkedList\bin\Release\StudentListClasses.dll
+D:\GitRepos\CS260\Lab3\LinkedList\bin\Release\TextClassClasses.dll
+D:\GitRepos\CS260\Lab3\LinkedList\bin\Release\StudentListClasses.pdb
+D:\GitRepos\CS260\Lab3\LinkedList\bin\Release\TextClassClasses.pdb
+D:\GitRepos\CS260\Lab3\LinkedList\obj\Release\LinkedListDriver.csprojAssemblyReference.cache
+D:\GitRepos\CS260\Lab3\LinkedList\obj\Release\LinkedListDriver.csproj.CoreCompileInputs.cache
+D:\GitRepos\CS260\Lab3\LinkedList\obj\Release\LinkedListDriver.csproj.CopyComplete
+D:\GitRepos\CS260\Lab3\LinkedList\obj\Release\LinkedList.exe
+D:\GitRepos\CS260\Lab3\LinkedList\obj\Release\LinkedList.pdb

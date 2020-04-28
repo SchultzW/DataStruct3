@@ -1,0 +1,19 @@
+D:\GitRepos\CS260\Lab3\LinkedList\bin\Debug\LinkedList.exe.config
+D:\GitRepos\CS260\Lab3\LinkedList\bin\Debug\LinkedList.exe
+D:\GitRepos\CS260\Lab3\LinkedList\bin\Debug\LinkedList.pdb
+D:\GitRepos\CS260\Lab3\LinkedList\bin\Debug\StudentListClasses.dll
+D:\GitRepos\CS260\Lab3\LinkedList\bin\Debug\TextClassClasses.dll
+D:\GitRepos\CS260\Lab3\LinkedList\bin\Debug\StudentListClasses.pdb
+D:\GitRepos\CS260\Lab3\LinkedList\bin\Debug\TextClassClasses.pdb
+D:\GitRepos\CS260\Lab3\LinkedList\obj\Debug\LinkedListDriver.csprojAssemblyReference.cache
+D:\GitRepos\CS260\Lab3\LinkedList\obj\Debug\LinkedListDriver.csproj.CoreCompileInputs.cache
+D:\GitRepos\CS260\Lab3\LinkedList\obj\Debug\LinkedListDriver.csproj.CopyComplete
+D:\GitRepos\CS260\Lab3\LinkedList\obj\Debug\LinkedList.exe
+D:\GitRepos\CS260\Lab3\LinkedList\obj\Debug\LinkedList.pdb
+C:\Users\wills\OneDrive\Desktop\School\Data Structures\CS260DriversOnly\Lab3\LinkedList\obj\Debug\LinkedListDriver.csprojAssemblyReference.cache
+C:\Users\wills\OneDrive\Desktop\School\Data Structures\CS260DriversOnly\Lab3\LinkedList\obj\Debug\LinkedListDriver.csproj.CoreCompileInputs.cache
+C:\Users\wills\OneDrive\Desktop\School\Data Structures\CS260DriversOnly\Lab3\LinkedList\bin\Debug\LinkedList.exe.config
+C:\Users\wills\OneDrive\Desktop\School\Data Structures\CS260DriversOnly\Lab3\LinkedList\bin\Debug\LinkedList.exe
+C:\Users\wills\OneDrive\Desktop\School\Data Structures\CS260DriversOnly\Lab3\LinkedList\bin\Debug\LinkedList.pdb
+C:\Users\wills\OneDrive\Desktop\School\Data Structures\CS260DriversOnly\Lab3\LinkedList\obj\Debug\LinkedList.exe
+C:\Users\wills\OneDrive\Desktop\School\Data Structures\CS260DriversOnly\Lab3\LinkedList\obj\Debug\LinkedList.pdb
