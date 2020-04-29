@@ -11,7 +11,7 @@ namespace LinkedList
         private Student Head { get; set; }
         private Student Tail { get; set; }
         private Student Iter { get; set; }//pointer to a link
-        private int Count = 0;
+        
 
         //public class sLink
         //{
@@ -43,14 +43,15 @@ namespace LinkedList
             if (Head == null)
                 Head =Tail= s;
 
-            Student temp = Head;
-            Head = s;
-            s.Previous = temp;
-            Count++;
+            //Student temp = Head;
+            //Head = s;
+            //s.Previous = temp;
+            Head = Head.Previous = s;
+            
         }
         public void InsertTail(Student s)
         {
-            Count++;
+            
             if (Tail==null)
             {
                 Head = Tail = s;
@@ -65,7 +66,7 @@ namespace LinkedList
         /// <returns></returns>
         public Student DeleteHead()
         {
-            Count--;
+           
             if(Head==null)
             {
                 throw new ArgumentOutOfRangeException("Head returned null");
@@ -86,7 +87,7 @@ namespace LinkedList
         }
         public bool IsEmpty()
         {
-            if (Count == 0)
+            if (Head == null)
                 return true;
             else
                 return false;
@@ -98,14 +99,30 @@ namespace LinkedList
         {
             if (Head == null)
                 return false;
-            Student s = Head;
-            for(int i=0;i<=Count;i++)
+            if(Iter==null)
             {
-                if(s.Name==name)
+                Iter = Head;
+            }
+            Student s = Head;
+            int i = 0;
+            bool wrap = false;
+            while (wrap == false || Iter.Next != null)
+            {
+                if (Iter.Name == name)
                 {
                     return true;
                 }
-                s = s.Previous;
+                else if (Iter.Next == null && i == 0)
+                {
+                    Iter = Head;
+                    i++;
+                }
+                else if (Iter.Next == null && i == 1)
+                {
+                    return false;
+                }
+                else
+                    Iter = Iter.Next;
             }
             return false;
         }
@@ -116,29 +133,61 @@ namespace LinkedList
         /// <returns></returns>
         public bool DeleteKey(string name)
         {
-            try
+            if (Head == null)
+                return false;
+            Student ptr = Head;
+            Student prev = new Student();
+
+            while (ptr.Next != null)
             {
-                if (Head == null)
-                    return false;
-                Student s = Head;
-                for (int i = 0; i < Count; i++)
+                if (ptr.Name == name)
                 {
-                    if(s.Name==name)
-                    {
-                        break;
-                    }
-                    s = s.Previous;
+                    break;
                 }
-                Student prev = s.Previous;
-                Student next = s.Next;
-                prev.Next = next;
-                next.Previous = next;
-                return true;
+                else
+                    ptr = ptr.Next;
             }
-            catch
+            if (ptr.Next == null)
             {
                 return false;
             }
+
+            Student next = ptr.Next;
+            prev.Next = next;
+            next.Previous = prev;
+            if (ptr.Equals(Iter))
+            {
+                Iter = null;
+            }
+
+            return true;
+
+
+
+
+            //try
+            //{
+            //    if (Head == null)
+            //        return false;
+            //    Student s = Head;
+            //    for (int i = 0; i < Count; i++)
+            //    {
+            //        if(s.Name==name)
+            //        {
+            //            break;
+            //        }
+            //        s = s.Previous;
+            //    }
+            //    Student prev = s.Previous;
+            //    Student next = s.Next;
+            //    prev.Next = next;
+            //    next.Previous = next;
+            //    return true;
+            //}
+            //catch
+            //{
+            //    return false;
+            //}
         }
 
     }

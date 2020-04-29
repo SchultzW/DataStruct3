@@ -21,7 +21,7 @@ namespace LinkedList
             public Link Head { get; set; }
             public Link Tail { get; set; }
             public Link Iter = null;//pointer to a link
-            public int Count = 0;
+
 
             public void InsertHead(char val)
             {
@@ -36,11 +36,11 @@ namespace LinkedList
 
                 }
                 Head = Head.Previous = temp;
-                Count++;
+                
             }
             public char DeleteHead()
             {
-                Count--;
+               
                 if (Head == null)
                 {
                     throw new InvalidOperationException("Head returned null");
@@ -58,7 +58,7 @@ namespace LinkedList
             }
             public void InsertTail(char val)
             {
-                Count++;
+                
                 Link temp = new Link()
                 {
                     Value = val,
@@ -77,7 +77,7 @@ namespace LinkedList
             public char DeleteTail()
             {
                 
-                Count--;
+              
                 if (Tail == null)
                 {
                     throw new InvalidOperationException("Tail returned null");
@@ -93,7 +93,7 @@ namespace LinkedList
             }
             public bool isEmpty()
             {
-                if (Count == 0)
+                if (Head == null)
                     return true;
                 else
                     return false;
@@ -103,21 +103,43 @@ namespace LinkedList
             //searches for char and sets itr to it. returns true if found
             public bool FindKey(char key)
             {
-                if (Head == null)
-                    return false;
-                Link ptr = Head;
-
-                for (int i = 0; i < Count; i++)
+                int i = 0;
+                bool wrap = false;
+                if (Iter == null)
+                    Iter = Head;
+                while(wrap==false||Iter.Previous!=null)
                 {
-              
-                    if (ptr.Value == key)
-                    {
-                        Iter = ptr;
+                   
+                    if (Iter.Value == key)
                         return true;
+
+
+                    else if (Iter.Next == null && i == 0)
+                    {
+                        i++;
+                        Iter = Head;
+                    }
+                    else if (Iter.Next == null && i == 1)
+                    {
+                        return false;
                     }
                     else
-                        ptr = ptr.Next;
+                        Iter = Iter.Next;
                 }
+ 
+                //Link ptr = Head;
+
+                //for (int i = 0; i < Count; i++)
+                //{
+              
+                //    if (ptr.Value == key)
+                //    {
+                //        Iter = ptr;
+                //        return true;
+                //    }
+                //    else
+                //        ptr = ptr.Next;
+                //}
                 return false;
             }
             //inserts into list previous to link pointed to by iter
@@ -142,10 +164,7 @@ namespace LinkedList
                     Iter.Previous = l;
                     if(prev!=null)
                         prev.Next = l;
-
-
-
-                    Count++;
+                   
                     return true;
                 }
                 catch
@@ -171,7 +190,7 @@ namespace LinkedList
                 prev.Next = next;
                 
                 Iter = null;
-                Count--;
+                
                 return true;
             }
             /// <summary>
@@ -184,38 +203,53 @@ namespace LinkedList
 
             public bool DeleteKey(char key)
             {
+                bool wrap = false;
+                int i = 0;
+                
+                
+                if (Head == null)
+                    return false;
+                Link ptr = Head;
+                Link prev = new Link();
 
-                try
+                //while (wrap == false)
+                //{
+                //    if (ptr.Value == key)
+                //    {
+                //        wrap = true;
+                //    }
+                //    else if(wrap==false&&i==0)
+                //    {
+
+                //    }
+                //    else
+                //        ptr = ptr.Next;
+                //}
+                while(ptr.Next!=null)
                 {
-                    if (Head == null)
-                        return false;
-                    Link ptr = Head;
-                    Link prev = new Link();
-                    for (int i = 0; i < Count; i++)
+                    if (ptr.Value == key)
                     {
-                        if (ptr.Value == key)
-                        {
-                           
-                            break;
-                        }
-                        else
-                            ptr = ptr.Next;
+                        break;
                     }
-                 
-                    Link next = ptr.Next;
-                    prev.Next = next;
-                    next.Previous = prev;
-                    if (ptr.Equals(Iter))
-                    {
-                        Iter = null;
-                    }
-                    Count--;
-                    return true;
+                    else
+                        ptr = ptr.Next;
                 }
-                catch
+                if(ptr.Next==null)
                 {
                     return false;
                 }
+
+                Link next = ptr.Next;
+                prev.Next = next;
+                next.Previous = prev;
+                if (ptr.Equals(Iter))
+                {
+                    Iter = null;
+                }
+                    
+                return true;
+                
+
             }
 
             public string DisplayList()
@@ -225,13 +259,26 @@ namespace LinkedList
                     return message;
                 Link ptr = Head;
 
-                for (int i = 0; i < Count; i++)
+
+                do
                 {
-                    if (ptr == null)
-                        break;
                     message += " " + ptr.Value;
                     ptr = ptr.Next;
                 }
+                while (ptr != null);
+
+                //while (ptr.Next!=null)
+                //{
+                //    message += " " + ptr.Value;
+                //    ptr = ptr.Next;
+                //}
+                //for (int i = 0; i < Count; i++)
+                //{
+                //    if (ptr == null)
+                //        break;
+                //    message += " " + ptr.Value;
+                //    ptr = ptr.Next;
+                //}
                 return message;
             }
             public static void AppendList(MyLinkedList aList,ref MyLinkedList bList)
@@ -246,24 +293,39 @@ namespace LinkedList
                 Link last = aList.Tail;
              
                 
-                for (int i = 0; i < bList.Count; i++)
+                //while(ptr.Next!=null)
+                //{
+                //    aList.InsertTail(ptr.Value);
+                //    ptr = ptr.Next;
+
+                //}
+
+                do
                 {
-
-
                     aList.InsertTail(ptr.Value);
-              
-
                     ptr = ptr.Next;
-                    if (last != null)
-                        last = last.Next;
 
-                    //last.Next = ptr;
-                    ////ptr.Next = last;
-
-                    //ptr = ptr.Next;
-                        
-              
                 }
+                while (ptr != null);
+
+                //for (int i = 0; i < bList.Count; i++)
+                //{
+
+
+                //    aList.InsertTail(ptr.Value);
+
+
+                //    //ptr = ptr.Next;
+                //    //if (last != null)
+                //    //    last = last.Next;
+
+                //    //last.Next = ptr;
+                //    ////ptr.Next = last;
+
+                //    //ptr = ptr.Next;
+
+
+                //}
             }
 
         }
